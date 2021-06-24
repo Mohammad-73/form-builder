@@ -2,6 +2,8 @@ import { useReducer } from "react";
 import "./App.css";
 import FormBuilder from "./component/FormBuilder";
 import inputReducer from "./reducers/inputReducer";
+import imageSrc from "./image/planets.png";
+// input types section
 const inputValues = [
   {
     type: "text",
@@ -16,7 +18,7 @@ const inputValues = [
     placeholder: "Enter your last name",
   },
   {
-    type: "text",
+    type: "number",
     label: "Age:",
     id: "text",
     placeholder: "Enter your Age",
@@ -40,6 +42,12 @@ const inputValues = [
     placeholder: "",
   },
   {
+    type: "checkbox",
+    label: "Remember me",
+    id: "",
+    placeholder: "",
+  },
+  {
     type: "button",
     label: "Cancel",
     colorName: "danger",
@@ -47,7 +55,7 @@ const inputValues = [
     placeholder: "",
   },
   {
-    type: "button",
+    type: "submit",
     label: "Submit",
     colorName: "primary",
     id: "",
@@ -57,6 +65,59 @@ const inputValues = [
     type: "reset",
     colorName: "warning",
     id: "reset",
+  },
+  {
+    type: "radio",
+    label: "male",
+    id: "",
+    placeholder: "",
+  },
+  {
+    type: "radio",
+    label: "female",
+    id: "",
+    placeholder: "",
+  },
+  {
+    type: "color",
+    label: "Select your favorite color:",
+    id: "facColor",
+    placeholder: "",
+  },
+  {
+    type: "date",
+    label: "Birthday:",
+    id: "birthday",
+    placeholder: "",
+  },
+  {
+    type: "datetime-local",
+    label: "Birthday:",
+    id: "birthday",
+    placeholder: "",
+  },
+  {
+    type: "file",
+    label: "Chose your file:",
+    id: "file",
+    placeholder: "",
+  },
+  {
+    type: "hidden",
+    name: "hide",
+    value: "hide",
+    label: "",
+    id: "file",
+    placeholder: "",
+  },
+  {
+    type: "image",
+    name: "image",
+    id: "image",
+    src: { imageSrc },
+    alt: "image",
+    width: "500",
+    height: "300",
   },
 ];
 
@@ -68,6 +129,7 @@ function App() {
         <div className="col-lg-12 bg-dark">
           <div className="App container bg-light p-5 rounded center">
             <FormBuilder inputs={inputs} />
+            <img src={imageSrc} alt="hello" width="100" height="100" />
           </div>
         </div>
       </div>
