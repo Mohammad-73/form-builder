@@ -114,10 +114,23 @@ const inputValues = [
     type: "image",
     name: "image",
     id: "image",
-    src: { imageSrc },
+    src: imageSrc,
     alt: "image",
     width: "500",
     height: "300",
+  },
+  {
+    type: "range",
+    name: "range",
+    label: "range",
+    id: "range",
+  },
+  {
+    type: "search",
+    name: "search",
+    label: "search",
+    id: "search",
+    placeholder: "search",
   },
 ];
 
@@ -129,7 +142,6 @@ function App() {
         <div className="col-lg-12 bg-dark">
           <div className="App container bg-light p-5 rounded center">
             <FormBuilder inputs={inputs} />
-            <img src={imageSrc} alt="hello" width="100" height="100" />
           </div>
         </div>
       </div>

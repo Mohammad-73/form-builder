@@ -76,13 +76,41 @@ export default function FormBuilder(props) {
                   </label>
                   <input
                     type={item.type}
-                    className="form-control"
+                    // className="form-control"
                     id={item.id}
                     src={item.src}
                     alt={item.alt}
                     width={item.width}
                     height={item.height}
                   />
+                </div>
+              );
+            case "range":
+              return (
+                <>
+                  <label className="form-label" htmlFor={item.id}>
+                    {item.label}
+                  </label>
+                  <input
+                    type={item.type}
+                    className="form-control-range"
+                    id={item.id}
+                  />
+                </>
+              );
+            case "search":
+              return (
+                <div className="input-group my-3">
+                  <input
+                    type={item.type}
+                    className="form-control"
+                    placeholder={item.type}
+                  />
+                  <div className="input-group-append">
+                    <button className="btn btn-success" type="submit">
+                      <i className="fa fa-search"></i>
+                    </button>
+                  </div>
                 </div>
               );
             default:
