@@ -1,4 +1,14 @@
 import React from "react";
+import TypeText from "./TypeText";
+import TypeColor from "./TypeColor";
+import TypeCheck from "./TypeCheck";
+import TypeButton from "./TypeButton";
+import TypeImage from "./TypeImage";
+import TypeRange from "./TypeRange";
+import TypeSearch from "./TypeSearch";
+import TypeTel from "./TypeTel";
+import Textarea from "./Textarea";
+import Select from "./Select";
 
 export default function FormBuilder(props) {
   const { inputs } = props;
@@ -19,143 +29,28 @@ export default function FormBuilder(props) {
             case "time":
             case "url":
             case "week":
-              return (
-                <div className="form-group">
-                  <label className="form-label" htmlFor={item.id}>
-                    {item.label}
-                  </label>
-                  <input
-                    type={item.type}
-                    className="form-control"
-                    placeholder={item.placeholder}
-                    id={item.id}
-                  />
-                </div>
-              );
+              return <TypeText item={item} />;
             case "color":
-              return (
-                <div className="form-group">
-                  <label htmlFor={item.id} class="form-label">
-                    {item.label}
-                  </label>
-                  <input
-                    style={{ width: "70px" }}
-                    type={item.type}
-                    class="form-control form-control-color"
-                    id={item.id}
-                    value="#563d7c"
-                    title="Choose your color"
-                  ></input>
-                </div>
-              );
+              return <TypeColor item={item} />;
             case "checkbox":
             case "radio":
-              return (
-                <div className="form-group form-check">
-                  <label className="form-check-label">
-                    <input
-                      className="form-check-input"
-                      type={item.type}
-                      name={item.name}
-                    />{" "}
-                    {item.label}
-                  </label>
-                </div>
-              );
+              return <TypeCheck item={item} />;
             case "submit":
             case "reset":
             case "button":
-              return (
-                <div className="form-group my-2">
-                  <input
-                    type={item.type}
-                    className={`btn btn-outline-${item.colorName}`}
-                    id={item.id}
-                    value={item.label}
-                  />
-                </div>
-              );
+              return <TypeButton item={item} />;
             case "image":
-              return (
-                <div className="form-group">
-                  <label className="form-label" htmlFor={item.id}>
-                    {item.label}
-                  </label>
-                  <input
-                    type={item.type}
-                    // className="form-control"
-                    id={item.id}
-                    src={item.src}
-                    alt={item.alt}
-                    width={item.width}
-                    height={item.height}
-                  />
-                </div>
-              );
+              return <TypeImage item={item} />;
             case "range":
-              return (
-                <>
-                  <label className="form-label" htmlFor={item.id}>
-                    {item.label}
-                  </label>
-                  <input
-                    type={item.type}
-                    className="form-control-range"
-                    id={item.id}
-                  />
-                </>
-              );
+              return <TypeRange item={item} />;
             case "search":
-              return (
-                <div className="input-group my-3">
-                  <input
-                    type={item.type}
-                    className="form-control"
-                    placeholder={item.type}
-                  />
-                  <div className="input-group-append">
-                    <button className="btn btn-success" type="submit">
-                      <i className="fa fa-search"></i>
-                    </button>
-                  </div>
-                </div>
-              );
+              return <TypeSearch item={item} />;
             case "tel":
-              return (
-                <div className="input-group my-3">
-                  <label className="form-label mb-2" htmlFor={item.id}>
-                    {item.label}
-                    <input
-                      type={item.type}
-                      id={item.id}
-                      className="form-control mt-2"
-                      placeholder={item.placeholder}
-                    />
-                  </label>
-                </div>
-              );
+              return <TypeTel item={item} />;
             case "textarea":
-              return (
-                <div class="form-group">
-                  <label htmlFor="comment">{item.label}</label>
-                  <textarea
-                    className="form-control"
-                    rows="5"
-                    id={item.id}
-                  ></textarea>
-                </div>
-              );
+              return <Textarea item={item} />;
             case "select":
-              return (
-                <div className="form-group">
-                  <label for={item.id}>{item.label}</label>
-                  <select className="form-control" id={item.id}>
-                    {item.option.map((opt) => (
-                      <option>{opt}</option>
-                    ))}
-                  </select>
-                </div>
-              );
+              return <Select item={item} />;
             default:
               console.log("error");
           }
