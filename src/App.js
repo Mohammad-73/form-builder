@@ -70,12 +70,14 @@ const inputValues = [
     type: "radio",
     label: "male",
     id: "",
+    name: "gender",
     placeholder: "",
   },
   {
     type: "radio",
     label: "female",
     id: "",
+    name: "gender",
     placeholder: "",
   },
   {
@@ -131,6 +133,48 @@ const inputValues = [
     label: "search",
     id: "search",
     placeholder: "search",
+  },
+  {
+    type: "tel",
+    name: "telephone",
+    label: "Enter your tel number:",
+    id: "tel",
+    placeholder: "tel number",
+  },
+  {
+    type: "time",
+    name: "time",
+    label: "Select time:",
+    id: "time",
+    placeholder: "",
+  },
+  {
+    type: "url",
+    name: "homepage",
+    label: "Add your homepage:",
+    id: "homepage",
+    placeholder: "",
+  },
+  {
+    type: "week",
+    name: "week",
+    label: "Select a week:",
+    id: "week",
+    placeholder: "",
+  },
+  {
+    type: "textarea",
+    name: "comment",
+    label: "Comment:",
+    id: "textarea",
+    placeholder: "",
+  },
+  {
+    type: "select",
+    name: "select",
+    label: "select:",
+    id: "select",
+    option: ["1", "2", "3", "4"],
   },
 ];
 

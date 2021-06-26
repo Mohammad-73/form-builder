@@ -16,6 +16,9 @@ export default function FormBuilder(props) {
             case "datetime-local":
             case "file":
             case "hidden":
+            case "time":
+            case "url":
+            case "week":
               return (
                 <div className="form-group">
                   <label className="form-label" htmlFor={item.id}>
@@ -50,7 +53,11 @@ export default function FormBuilder(props) {
               return (
                 <div className="form-group form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type={item.type} />{" "}
+                    <input
+                      className="form-check-input"
+                      type={item.type}
+                      name={item.name}
+                    />{" "}
                     {item.label}
                   </label>
                 </div>
@@ -111,6 +118,42 @@ export default function FormBuilder(props) {
                       <i className="fa fa-search"></i>
                     </button>
                   </div>
+                </div>
+              );
+            case "tel":
+              return (
+                <div className="input-group my-3">
+                  <label className="form-label mb-2" htmlFor={item.id}>
+                    {item.label}
+                    <input
+                      type={item.type}
+                      id={item.id}
+                      className="form-control mt-2"
+                      placeholder={item.placeholder}
+                    />
+                  </label>
+                </div>
+              );
+            case "textarea":
+              return (
+                <div class="form-group">
+                  <label htmlFor="comment">{item.label}</label>
+                  <textarea
+                    className="form-control"
+                    rows="5"
+                    id={item.id}
+                  ></textarea>
+                </div>
+              );
+            case "select":
+              return (
+                <div className="form-group">
+                  <label for={item.id}>{item.label}</label>
+                  <select className="form-control" id={item.id}>
+                    {item.option.map((opt) => (
+                      <option>{opt}</option>
+                    ))}
+                  </select>
                 </div>
               );
             default:
