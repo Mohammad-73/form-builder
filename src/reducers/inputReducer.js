@@ -8,9 +8,12 @@ export default function inputReducer(state, action) {
           type: action.payload.type,
           label: action.payload.label,
           placeholder: action.payload.placeholder,
-          id: "laghab",
+          id: uuid(),
         },
       ];
+    }
+    case "delete": {
+      return [];
     }
     default:
       return state;

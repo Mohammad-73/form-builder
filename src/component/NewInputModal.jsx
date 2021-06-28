@@ -6,6 +6,7 @@ export default function NewInputModal(props) {
     type: "",
     label: "",
     placeholder: "",
+    name: "",
   });
 
   const handleChange = (evt) => {
@@ -13,6 +14,18 @@ export default function NewInputModal(props) {
     const name = evt.target.name;
 
     setFormState({ ...formState, [name]: value });
+  };
+
+  const handleAdd = () => {
+    setFormState({ type: "", label: "", placeholder: "", name: "" });
+    dispatchInputs({
+      type: "add",
+      payload: {
+        type: formState.type,
+        label: formState.label,
+        placeholder: formState.placeholder,
+      },
+    });
   };
   return (
     <div id="myModal" className="modal fade" role="dialog">
@@ -59,6 +72,18 @@ export default function NewInputModal(props) {
                   className="form-control"
                 />
               </div>
+              <div className="input-group mb-2 mr-2 input-group-sm">
+                <div className="input-group-prepend">
+                  <span className="input-group-text">unique name</span>
+                </div>
+                <input
+                  value={formState.name}
+                  onChange={handleChange}
+                  type="text"
+                  name="name"
+                  className="form-control"
+                />
+              </div>
             </form>
           </div>
           <div className="modal-footer">
@@ -70,16 +95,7 @@ export default function NewInputModal(props) {
               Close
             </button>
             <button
-              onClick={() =>
-                dispatchInputs({
-                  type: "add",
-                  payload: {
-                    type: formState.type,
-                    label: formState.label,
-                    placeholder: formState.placeholder,
-                  },
-                })
-              }
+              onClick={handleAdd}
               type="button"
               className="btn btn-success"
               data-dismiss="modal"

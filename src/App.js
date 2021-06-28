@@ -14,18 +14,21 @@ const inputValues = [
     type: "text",
     label: "First name:",
     id: uuid(),
+    name: "fName",
     placeholder: "Enter your first name",
   },
   {
     type: "text",
     label: "Last name:",
     id: uuid(),
+    name: "lName",
     placeholder: "Enter your last name",
   },
   {
     type: "number",
     label: "Age:",
     id: uuid(),
+    name: "age",
     placeholder: "Enter your Age",
   },
   {
@@ -68,6 +71,7 @@ function App() {
   const closeTheForm = () => {
     setNewForm(false);
     setCloseForm(true);
+    dispatchInputs({ type: "delete" });
   };
   return (
     <div className="container-fluid bg-dark py-5">

@@ -13,6 +13,14 @@ import Select from "./Select";
 export default function FormBuilder(props) {
   const { inputs } = props;
 
+  const inputNames = inputs.map((item) => {
+    return item.name;
+  });
+  console.log(inputNames);
+  const inputNames2 = inputNames.filter((item) => {
+    return item !== undefined;
+  });
+  console.log(inputNames2);
   return (
     <form>
       {inputs.map((item) => {
