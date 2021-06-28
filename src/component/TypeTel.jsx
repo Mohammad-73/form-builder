@@ -11,6 +11,7 @@ export default function TypeTel(props) {
           id={item.id}
           className="form-control mt-2"
           placeholder={item.placeholder}
+          name={item.name}
         />
       </label>
     </div>

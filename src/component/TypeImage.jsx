@@ -11,6 +11,7 @@ export default function TypeImage(props) {
         type={item.type}
         id={item.id}
         src={item.src}
+        name={item.name}
         alt={item.alt}
         width={item.width}
         height={item.height}

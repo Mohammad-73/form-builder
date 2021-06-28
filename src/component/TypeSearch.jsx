@@ -8,6 +8,7 @@ export default function TypeSearch(props) {
         type={item.type}
         className="form-control"
         placeholder={item.type}
+        name={item.name}
       />
       <div className="input-group-append">
         <button className="btn btn-success" type="submit">

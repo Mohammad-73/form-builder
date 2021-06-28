@@ -1,22 +1,172 @@
-<input type="button"> *
-<input type="checkbox"> *
-<input type="color"> *
-<input type="date"> *
-<input type="datetime-local"> *
-<input type="email"> *
-<input type="file"> *
-<input type="hidden"> *
-<input type="image"> *
-<input type="month"> *
-<input type="number"> *
-<input type="password"> *
-<input type="radio"> *
-<input type="range"> *
-<input type="reset"> *
-<input type="search"> *
-<input type="submit"> *
-<input type="tel">
-<input type="text"> *
-<input type="time">
-<input type="url">
-<input type="week">
+{
+    type: "text",
+    label: "First name:",
+    name:"fName",
+    placeholder: "Enter your first name",
+  },
+  {
+    type: "text",
+    label: "Last name:",
+    name:"lName",
+    placeholder: "Enter your last name",
+  },
+  {
+    type: "number",
+    label: "Age:",
+    name:"age",
+    placeholder: "Enter your Age",
+  },
+  {
+    type: "email",
+    label: "Email address:",
+    name:"eAddress",
+    placeholder: "Enter email",
+  },
+  {
+    type: "password",
+    label: "Password:",
+    name:"pass",
+    placeholder: "Enter password",
+  },
+  {
+    type: "checkbox",
+    label: "I have a car",
+    id: "",
+    placeholder: "",
+  },
+  {
+    type: "checkbox",
+    label: "I have a bike",
+    id: "",
+    placeholder: "",
+  },
+  {
+    type: "button",
+    label: "Cancel",
+    colorName: "danger",
+    id: "",
+    placeholder: "",
+  },
+  {
+    type: "submit",
+    label: "Submit",
+    colorName: "primary",
+    id: "",
+    placeholder: "",
+  },
+    {
+      type: "reset",
+      colorName: "warning",
+      id: "reset",
+    },
+    {
+      type: "radio",
+      label: "male",
+      id: "",
+      name: "gender",
+      placeholder: "",
+    },
+    {
+      type: "radio",
+      label: "female",
+      id: "",
+      name: "gender",
+      placeholder: "",
+    },
+    {
+      type: "color",
+      label: "Select your favorite color:",
+      name:"cName",
+      placeholder: "",
+    },
+    {
+      type: "date",
+      label: "Birthday:",
+      name:"bDate",
+      placeholder: "",
+    },
+    {
+      type: "datetime-local",
+      label: "Birthday:",
+      name:"birthdayDate",
+      placeholder: "",
+    },
+    {
+      type: "file",
+      label: "Chose your file:",
+      name:"files",
+      placeholder: "",
+    },
+    {
+      type: "hidden",
+      name: "hide",
+      value: "hide",
+      label: "",
+      id: "file",
+      placeholder: "",
+    },
+    {
+      type: "image",
+      name: "image",
+      id: "image",
+      src: imageSrc,
+      alt: "image",
+      width: "500",
+      height: "300",
+    },
+    {
+      type: "range",
+      name: "range",
+      label: "range",
+      id: "range",
+    },
+    {
+      type: "search",
+      name: "search",
+      label: "search",
+      id: "search",
+      placeholder: "search",
+    },
+    {
+      type: "tel",
+      name: "telephone",
+      label: "Enter your tel number:",
+      id: "tel",
+      placeholder: "tel number",
+    },
+    {
+      type: "time",
+      name: "time",
+      label: "Select time:",
+      id: "time",
+      placeholder: "",
+    },
+    {
+      type: "url",
+      name: "homepage",
+      label: "Add your homepage:",
+      id: "homepage",
+      placeholder: "",
+    },
+    {
+      type: "week",
+      name: "week",
+      label: "Select a week:",
+      id: "week",
+      placeholder: "",
+    },
+    {
+      type: "textarea",
+      name: "comment",
+      label: "Comment:",
+      id: "textarea",
+      placeholder: "",
+    },
+    {
+      type: "select",
+      name: "select",
+      label: "select:",
+      id: "select",
+      option: ["1", "2", "3", "4"],
+    },
+

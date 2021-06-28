@@ -1,49 +1,42 @@
-import { useReducer } from "react";
+import { useState, useReducer } from "react";
 import "./App.css";
 import FormBuilder from "./component/FormBuilder";
 import inputReducer from "./reducers/inputReducer";
+import PlusAndClose from "./component/PlusAndClose";
+import NewForm from "./component/NewForm";
+import NewInputModal from "./component/NewInputModal";
+import { v4 as uuid } from "uuid";
 import imageSrc from "./image/planets.png";
+
 // input types section
 const inputValues = [
   {
     type: "text",
     label: "First name:",
-    id: "text",
+    id: uuid(),
     placeholder: "Enter your first name",
   },
   {
     type: "text",
     label: "Last name:",
-    id: "text",
+    id: uuid(),
     placeholder: "Enter your last name",
   },
   {
     type: "number",
     label: "Age:",
-    id: "text",
+    id: uuid(),
     placeholder: "Enter your Age",
   },
   {
-    type: "email",
-    label: "Email address:",
-    id: "email",
-    placeholder: "Enter email",
-  },
-  {
-    type: "password",
-    label: "Password:",
-    id: "password",
-    placeholder: "Enter password",
-  },
-  {
     type: "checkbox",
-    label: "Remember me",
+    label: "I have a car",
     id: "",
     placeholder: "",
   },
   {
     type: "checkbox",
-    label: "Remember me",
+    label: "I have a bike",
     id: "",
     placeholder: "",
   },
@@ -61,132 +54,35 @@ const inputValues = [
     id: "",
     placeholder: "",
   },
-  {
-    type: "reset",
-    colorName: "warning",
-    id: "reset",
-  },
-  {
-    type: "radio",
-    label: "male",
-    id: "",
-    name: "gender",
-    placeholder: "",
-  },
-  {
-    type: "radio",
-    label: "female",
-    id: "",
-    name: "gender",
-    placeholder: "",
-  },
-  {
-    type: "color",
-    label: "Select your favorite color:",
-    id: "facColor",
-    placeholder: "",
-  },
-  {
-    type: "date",
-    label: "Birthday:",
-    id: "birthday",
-    placeholder: "",
-  },
-  {
-    type: "datetime-local",
-    label: "Birthday:",
-    id: "birthday",
-    placeholder: "",
-  },
-  {
-    type: "file",
-    label: "Chose your file:",
-    id: "file",
-    placeholder: "",
-  },
-  {
-    type: "hidden",
-    name: "hide",
-    value: "hide",
-    label: "",
-    id: "file",
-    placeholder: "",
-  },
-  {
-    type: "image",
-    name: "image",
-    id: "image",
-    src: imageSrc,
-    alt: "image",
-    width: "500",
-    height: "300",
-  },
-  {
-    type: "range",
-    name: "range",
-    label: "range",
-    id: "range",
-  },
-  {
-    type: "search",
-    name: "search",
-    label: "search",
-    id: "search",
-    placeholder: "search",
-  },
-  {
-    type: "tel",
-    name: "telephone",
-    label: "Enter your tel number:",
-    id: "tel",
-    placeholder: "tel number",
-  },
-  {
-    type: "time",
-    name: "time",
-    label: "Select time:",
-    id: "time",
-    placeholder: "",
-  },
-  {
-    type: "url",
-    name: "homepage",
-    label: "Add your homepage:",
-    id: "homepage",
-    placeholder: "",
-  },
-  {
-    type: "week",
-    name: "week",
-    label: "Select a week:",
-    id: "week",
-    placeholder: "",
-  },
-  {
-    type: "textarea",
-    name: "comment",
-    label: "Comment:",
-    id: "textarea",
-    placeholder: "",
-  },
-  {
-    type: "select",
-    name: "select",
-    label: "select:",
-    id: "select",
-    option: ["1", "2", "3", "4"],
-  },
 ];
 
 function App() {
   const [inputs, dispatchInputs] = useReducer(inputReducer, inputValues);
+  const [newForm, setNewForm] = useState(false);
+  const [closeForm, setCloseForm] = useState(true);
+
+  const showTheForm = () => {
+    setNewForm(true);
+    setCloseForm(false);
+  };
+  const closeTheForm = () => {
+    setNewForm(false);
+    setCloseForm(true);
+  };
   return (
     <div className="container-fluid bg-dark py-5">
       <div className="row bg-dark">
         <div className="col-lg-12 bg-dark">
-          <div className="App container bg-light p-5 rounded center">
-            <FormBuilder inputs={inputs} />
-          </div>
+          {closeForm && <NewForm showTheForm={showTheForm} />}
+          {newForm && (
+            <>
+              <PlusAndClose closeTheForm={closeTheForm} />
+              <div className="App container bg-light p-5 rounded center">
+                <FormBuilder inputs={inputs} />
+              </div>
+            </>
+          )}
+          <NewInputModal dispatchInputs={dispatchInputs} />
         </div>
       </div>
     </div>

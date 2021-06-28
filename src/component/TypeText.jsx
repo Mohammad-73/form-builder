@@ -12,6 +12,7 @@ export default function TypeText(props) {
         className="form-control"
         placeholder={item.placeholder}
         id={item.id}
+        name={item.name}
       />
     </div>
   );

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
 /* .App {
   text-align: left;
 }
@@ -46,4 +47,42 @@
 }
 .col-lg-12 {
   width: 100%;
+}
+.App {
+  overflow: auto;
+}
+/* new form styles */
+.pNewForm {
+  position: relative;
+  text-align: center;
+}
+.newForm {
+  font-family: "Montserrat", sans-serif;
+  color: whitesmoke;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.newForm span {
+  padding: 10px 12px;
+  margin: 20px;
+  border: 1px solid whitesmoke;
+  border-radius: 50%;
+  align-items: center;
+  cursor: pointer;
+}
+.newForm p {
+  letter-spacing: 2px;
+}
+
+/* close Form styles*/
+
+.plusAndClose span {
+  padding: 10px 14px;
+  margin: 20px;
+
+  border-radius: 50%;
+  align-items: center;
+  cursor: pointer;
 }

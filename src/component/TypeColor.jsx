@@ -14,6 +14,7 @@ export default function TypeColor(props) {
         id={item.id}
         value="#563d7c"
         title="Choose your color"
+        name={item.name}
       ></input>
     </div>
   );
