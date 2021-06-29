@@ -1,15 +1,15 @@
 import React from "react";
 import { v4 as uuid } from "uuid";
-import TypeText from "./TypeText";
-import TypeColor from "./TypeColor";
-import TypeCheck from "./TypeCheck";
-import TypeButton from "./TypeButton";
-import TypeImage from "./TypeImage";
-import TypeRange from "./TypeRange";
-import TypeSearch from "./TypeSearch";
-import TypeTel from "./TypeTel";
-import Textarea from "./Textarea";
-import Select from "./Select";
+import TypeText from "./inputTypesComponent/TypeText";
+import TypeColor from "./inputTypesComponent/TypeColor";
+import TypeCheck from "./inputTypesComponent/TypeCheck";
+import TypeButton from "./inputTypesComponent/TypeButton";
+import TypeImage from "./inputTypesComponent/TypeImage";
+import TypeRange from "./inputTypesComponent/TypeRange";
+import TypeSearch from "./inputTypesComponent/TypeSearch";
+import TypeTel from "./inputTypesComponent/TypeTel";
+import Textarea from "./inputTypesComponent/Textarea";
+import Select from "./inputTypesComponent/Select";
 
 export default function FormBuilder(props) {
   const { inputs } = props;
