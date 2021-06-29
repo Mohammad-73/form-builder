@@ -14,6 +14,10 @@ import Select from "./Select";
 export default function FormBuilder(props) {
   const { inputs } = props;
 
+  const handleValue = (obj) => {
+    // console.log(obj);
+  };
+
   return (
     <form>
       {inputs.map((item) => {
@@ -29,7 +33,13 @@ export default function FormBuilder(props) {
           case "time":
           case "url":
           case "week":
-            return <TypeText key={uuid()} item={item} />;
+            return (
+              <TypeText
+                key={uuid()}
+                item={item}
+                handleValue={(obj) => handleValue(obj)}
+              />
+            );
           case "color":
             return <TypeColor key={uuid()} item={item} />;
           case "checkbox":

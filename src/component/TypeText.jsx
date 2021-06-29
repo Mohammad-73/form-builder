@@ -1,7 +1,21 @@
 import React, { useState, useEffect } from "react";
 
 export default function TypeText(props) {
-  const { item } = props;
+  const { item, handleValue } = props;
+
+  const [val, setVal] = useState();
+
+  useEffect(() => {
+    let obj = {
+      type: item.type,
+      id: item.id,
+      value: val,
+      name: item.name,
+      placeholde: item.placeholder,
+      label: item.label,
+    };
+    handleValue(obj);
+  }, [val]);
 
   return (
     <div className="form-group">
@@ -14,7 +28,11 @@ export default function TypeText(props) {
         placeholder={item.placeholder}
         id={item.id}
         name={item.name}
+        value={val}
+        onChange={(e) => setVal(e.target.value)}
+        required
       />
+      {val}
     </div>
   );
 }
