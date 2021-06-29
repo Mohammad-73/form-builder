@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function TypeText(props) {
   const { item } = props;
+
   return (
     <div className="form-group">
       <label className="form-label" htmlFor={item.id}>

@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuid } from "uuid";
 import TypeText from "./TypeText";
 import TypeColor from "./TypeColor";
 import TypeCheck from "./TypeCheck";
@@ -13,14 +14,6 @@ import Select from "./Select";
 export default function FormBuilder(props) {
   const { inputs } = props;
 
-  const inputNames = inputs.map((item) => {
-    return item.name;
-  });
-  console.log(inputNames);
-  const inputNames2 = inputNames.filter((item) => {
-    return item !== undefined;
-  });
-  console.log(inputNames2);
   return (
     <form>
       {inputs.map((item) => {
@@ -36,30 +29,30 @@ export default function FormBuilder(props) {
           case "time":
           case "url":
           case "week":
-            return <TypeText item={item} />;
+            return <TypeText key={uuid()} item={item} />;
           case "color":
-            return <TypeColor item={item} />;
+            return <TypeColor key={uuid()} item={item} />;
           case "checkbox":
           case "radio":
-            return <TypeCheck item={item} />;
+            return <TypeCheck key={uuid()} item={item} />;
           case "submit":
           case "reset":
           case "button":
-            return <TypeButton item={item} />;
+            return <TypeButton key={uuid()} item={item} />;
           case "image":
-            return <TypeImage item={item} />;
+            return <TypeImage key={uuid()} item={item} />;
           case "range":
-            return <TypeRange item={item} />;
+            return <TypeRange key={uuid()} item={item} />;
           case "search":
-            return <TypeSearch item={item} />;
+            return <TypeSearch key={uuid()} item={item} />;
           case "tel":
-            return <TypeTel item={item} />;
+            return <TypeTel key={uuid()} item={item} />;
           case "textarea":
-            return <Textarea item={item} />;
+            return <Textarea key={uuid()} item={item} />;
           case "select":
-            return <Select item={item} />;
+            return <Select key={uuid()} item={item} />;
           default:
-            console.log("error");
+            return <></>;
         }
       })}
     </form>

@@ -6,7 +6,7 @@ import PlusAndClose from "./component/PlusAndClose";
 import NewForm from "./component/NewForm";
 import NewInputModal from "./component/NewInputModal";
 import { v4 as uuid } from "uuid";
-import imageSrc from "./image/planets.png";
+// import imageSrc from "./image/planets.png";
 
 // input types section
 const inputValues = [
