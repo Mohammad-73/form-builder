@@ -15,7 +15,7 @@ export default function FormBuilder(props) {
   const { inputs } = props;
 
   const handleValue = (obj) => {
-    // console.log(obj);
+    console.log(obj);
   };
 
   return (
@@ -33,6 +33,7 @@ export default function FormBuilder(props) {
           case "time":
           case "url":
           case "week":
+          case "month":
             return (
               <TypeText
                 key={uuid()}
@@ -41,10 +42,22 @@ export default function FormBuilder(props) {
               />
             );
           case "color":
-            return <TypeColor key={uuid()} item={item} />;
+            return (
+              <TypeColor
+                key={uuid()}
+                item={item}
+                handleValue={(obj) => handleValue(obj)}
+              />
+            );
           case "checkbox":
           case "radio":
-            return <TypeCheck key={uuid()} item={item} />;
+            return (
+              <TypeCheck
+                key={uuid()}
+                item={item}
+                handleValue={(obj) => handleValue(obj)}
+              />
+            );
           case "submit":
           case "reset":
           case "button":
@@ -52,15 +65,45 @@ export default function FormBuilder(props) {
           case "image":
             return <TypeImage key={uuid()} item={item} />;
           case "range":
-            return <TypeRange key={uuid()} item={item} />;
+            return (
+              <TypeRange
+                key={uuid()}
+                item={item}
+                handleValue={(obj) => handleValue(obj)}
+              />
+            );
           case "search":
-            return <TypeSearch key={uuid()} item={item} />;
+            return (
+              <TypeSearch
+                key={uuid()}
+                item={item}
+                handleValue={(obj) => handleValue(obj)}
+              />
+            );
           case "tel":
-            return <TypeTel key={uuid()} item={item} />;
+            return (
+              <TypeTel
+                key={uuid()}
+                item={item}
+                handleValue={(obj) => handleValue(obj)}
+              />
+            );
           case "textarea":
-            return <Textarea key={uuid()} item={item} />;
+            return (
+              <Textarea
+                key={uuid()}
+                item={item}
+                handleValue={(obj) => handleValue(obj)}
+              />
+            );
           case "select":
-            return <Select key={uuid()} item={item} />;
+            return (
+              <Select
+                key={uuid()}
+                item={item}
+                handleValue={(obj) => handleValue(obj)}
+              />
+            );
           default:
             return <></>;
         }

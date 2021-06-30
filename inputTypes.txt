@@ -77,6 +77,7 @@
       type: "color",
       label: "Select your favorite color:",
       name:"cName",
+      title:"chose your color",
       placeholder: "",
     },
     {
@@ -164,9 +165,9 @@
     },
     {
       type: "select",
-      name: "select",
-      label: "select:",
+      name: "flavorSelect",
+      label: "Pick your favorite flavor::",
       id: "select",
-      option: ["1", "2", "3", "4"],
+      option: ["Grapefruit", "Lime", "Coconut", "Mango"],
     },
 
