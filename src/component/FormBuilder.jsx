@@ -3,6 +3,7 @@ import { v4 as uuid } from "uuid";
 import TypeText from "./inputTypesComponent/TypeText";
 import TypeColor from "./inputTypesComponent/TypeColor";
 import TypeCheck from "./inputTypesComponent/TypeCheck";
+import TypeRadio from "./inputTypesComponent/TypeRadio";
 import TypeButton from "./inputTypesComponent/TypeButton";
 import TypeImage from "./inputTypesComponent/TypeImage";
 import TypeRange from "./inputTypesComponent/TypeRange";
@@ -12,14 +13,14 @@ import Textarea from "./inputTypesComponent/Textarea";
 import Select from "./inputTypesComponent/Select";
 
 export default function FormBuilder(props) {
-  const { inputs } = props;
+  const { inputs, dispatchInputs, showResult } = props;
 
   const handleValue = (obj) => {
-    console.log(obj);
+    // console.log(obj);
   };
 
   return (
-    <form>
+    <form onSubmit={(e) => showResult(e)}>
       {inputs.map((item) => {
         switch (item.type) {
           case "text":
@@ -39,6 +40,7 @@ export default function FormBuilder(props) {
                 key={uuid()}
                 item={item}
                 handleValue={(obj) => handleValue(obj)}
+                dispatchInputs={dispatchInputs}
               />
             );
           case "color":
@@ -50,9 +52,16 @@ export default function FormBuilder(props) {
               />
             );
           case "checkbox":
-          case "radio":
             return (
               <TypeCheck
+                key={uuid()}
+                item={item}
+                handleValue={(obj) => handleValue(obj)}
+              />
+            );
+          case "radio":
+            return (
+              <TypeRadio
                 key={uuid()}
                 item={item}
                 handleValue={(obj) => handleValue(obj)}

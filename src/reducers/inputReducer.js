@@ -15,6 +15,15 @@ export default function inputReducer(state, action) {
     case "delete": {
       return [];
     }
+    case "update": {
+      return state.map((item) => {
+        if (item.id === action.payload.id) {
+          return action.payload;
+        } else {
+          return item;
+        }
+      });
+    }
     default:
       return state;
   }

@@ -27,7 +27,7 @@ const inputValues = [
   {
     type: "select",
     name: "flavorSelect",
-    label: "Pick your favorite flavor::",
+    label: "Pick your favorite flavor:",
     id: "select",
     option: ["Grapefruit", "Lime", "Coconut", "Mango"],
   },
@@ -66,6 +66,13 @@ function App() {
   const [newForm, setNewForm] = useState(false);
   const [closeForm, setCloseForm] = useState(true);
 
+  const showResult = (e) => {
+    e.preventDefault();
+    let newInput = inputValues.map((item) => {
+      return `${item.label} > ${item.value}`;
+    });
+    alert(newInput);
+  };
   const showTheForm = () => {
     setNewForm(true);
     setCloseForm(false);
@@ -84,7 +91,11 @@ function App() {
             <>
               <PlusAndClose closeTheForm={closeTheForm} />
               <div className="App container bg-light p-5 rounded center">
-                <FormBuilder inputs={inputs} />
+                <FormBuilder
+                  inputs={inputs}
+                  dispatchInputs={dispatchInputs}
+                  showResult={(e) => showResult(e)}
+                />
               </div>
             </>
           )}

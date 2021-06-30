@@ -29,7 +29,6 @@ const inputTypesArr = [
 export default function NewInputModal(props) {
   const { dispatchInputs } = props;
 
-  const [closeOnOk, setCloseOnOk] = useState(false);
   const [selectType, setSelectType] = useState("text");
   const [formState, setFormState] = useState({
     label: "",
@@ -70,7 +69,6 @@ export default function NewInputModal(props) {
           height: formState.height,
         },
       });
-      setCloseOnOk(true);
     } else {
       alert("please insert a name");
     }
@@ -237,10 +235,9 @@ export default function NewInputModal(props) {
               Close
             </button>
             <button
-              onClick={(evt) => handleAdd(evt)}
+              onClick={handleAdd}
               type="button"
               className="btn btn-success"
-              data-dismiss={closeOnOk ? "modal" : ""}
             >
               Ok
             </button>

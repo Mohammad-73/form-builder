@@ -13,6 +13,7 @@ export default function Select(props) {
       id: item.id,
       name: item.name,
       value: selectVal,
+      option: ["Grapefruit", "Lime", "Coconut", "Mango"],
     };
     handleValue(obj);
   }, [selectVal]);

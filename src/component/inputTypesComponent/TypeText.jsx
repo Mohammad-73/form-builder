@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 export default function TypeText(props) {
-  const { item, handleValue } = props;
+  const { item, handleValue, dispatchInputs } = props;
 
   const [textVal, setTextVal] = useState("");
+  // let object = undefined;
 
   useEffect(() => {
     let obj = {
@@ -14,8 +15,16 @@ export default function TypeText(props) {
       placeholde: item.placeholder,
       label: item.label,
     };
+    // object = obj;
     handleValue(obj);
   }, [textVal]);
+
+  // useEffect(() => {
+  //   return () => {
+  //     console.log(object);
+  //     dispatchInputs({ type: "update", payload: object });
+  //   };
+  // }, []);
 
   return (
     <div className="form-group">
