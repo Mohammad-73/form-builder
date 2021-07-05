@@ -7,7 +7,7 @@ export default function TypeButton(props) {
       <input
         type={item.type}
         className={`btn btn-outline-${item.colorName}`}
-        id={item.id}
+        id={item.name}
         value={item.label}
       />
     </div>

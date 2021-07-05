@@ -1,20 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 export default function TypeRadio(props) {
-  const { item, handleValue } = props;
-
-  const [radioVal, setRadioVal] = useState(item.label);
-
-  useEffect(() => {
-    let obj = {
-      type: item.type,
-      checked: radioVal,
-      value: item.label,
-      name: item.name,
-      label: item.label,
-    };
-    handleValue(obj);
-  }, [radioVal]);
+  const { item, value, handleChange } = props;
 
   return (
     <div className="form-group form-check">
@@ -23,8 +10,8 @@ export default function TypeRadio(props) {
           className="form-check-input"
           type={item.type}
           name={item.name}
-          checked={item.label}
-          onChange={() => setRadioVal(item.label)}
+          value={item.label}
+          onChange={handleChange}
         />{" "}
         {item.label}
       </label>

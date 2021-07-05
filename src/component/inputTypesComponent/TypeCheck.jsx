@@ -1,19 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 export default function TypeCheck(props) {
-  const { item, handleValue } = props;
-
-  const [checkVal, setCheckVal] = useState(false);
-
-  useEffect(() => {
-    let obj = {
-      type: item.type,
-      checked: checkVal,
-      name: item.name,
-      label: item.label,
-    };
-    handleValue(obj);
-  }, [checkVal]);
+  const { item, value, handleChange } = props;
 
   return (
     <div className="form-group form-check">
@@ -22,8 +10,8 @@ export default function TypeCheck(props) {
           className="form-check-input"
           type={item.type}
           name={item.name}
-          checked={checkVal}
-          onChange={() => setCheckVal(!checkVal)}
+          checked={value}
+          onChange={handleChange}
         />{" "}
         {item.label}
       </label>

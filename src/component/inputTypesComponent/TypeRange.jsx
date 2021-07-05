@@ -1,33 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 export default function TypeRange(props) {
-  const { item, handleValue } = props;
-
-  const [rangeVal, setRangeVal] = useState("");
-
-  useEffect(() => {
-    let obj = {
-      type: item.type,
-      label: item.label,
-      id: item.id,
-      name: item.name,
-      value: rangeVal,
-    };
-    handleValue(obj);
-  }, [rangeVal]);
+  const { item, value, handleChange } = props;
 
   return (
     <div className="form-group">
-      <label className="form-label" htmlFor={item.id}>
+      <label className="form-label" htmlFor={item.name}>
         {item.label}
       </label>
       <input
         type={item.type}
         name={item.name}
         className="form-control-range"
-        id={item.id}
-        value={rangeVal}
-        onChange={(evt) => setRangeVal(evt.target.value)}
+        id={item.name}
+        value={value}
+        onChange={handleChange}
       />
     </div>
   );

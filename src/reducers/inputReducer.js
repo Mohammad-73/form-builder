@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 export default function inputReducer(state, action) {
   switch (action.type) {
     case "add": {
@@ -8,7 +7,15 @@ export default function inputReducer(state, action) {
           type: action.payload.type,
           label: action.payload.label,
           placeholder: action.payload.placeholder,
-          id: uuid(),
+          name: action.payload.name,
+          maxlength: action.payload.maxlength,
+          max: action.payload.max,
+          min: action.payload.min,
+          pattern: action.payload.pattern,
+          step: action.payload.step,
+          width: action.payload.width,
+          height: action.payload.height,
+          colorName: action.payload.buttonColor,
         },
       ];
     }

@@ -1,35 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 export default function TypeSearch(props) {
-  const { item, handleValue } = props;
-
-  const [searchVal, setSearchVal] = useState("");
-
-  useEffect(() => {
-    let obj = {
-      type: item.type,
-      label: item.label,
-      id: item.id,
-      name: item.name,
-      value: searchVal,
-    };
-    handleValue(obj);
-  }, [searchVal]);
+  const { item, value, handleChange } = props;
 
   return (
     <div className="form-group">
-      <label className="form-label" htmlFor={item.id}>
+      <label className="form-label" htmlFor={item.name}>
         {item.label}
       </label>
       <div className="input-group ">
         <input
           type={item.type}
-          id={item.id}
+          id={item.name}
           className="form-control"
           placeholder={item.type}
           name={item.name}
-          value={searchVal}
-          onChange={(evt) => setSearchVal(evt.target.value)}
+          value={value}
+          onChange={handleChange}
         />
         <div className="input-group-append">
           <button className="btn btn-success" type="submit">

@@ -1,32 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 export default function Textarea(props) {
-  const { item, handleValue } = props;
-
-  const [textareaVal, setTextareaVal] = useState("");
-
-  useEffect(() => {
-    let obj = {
-      type: item.type,
-      label: item.label,
-      id: item.id,
-      name: item.name,
-      value: textareaVal,
-    };
-    handleValue(obj);
-  }, [textareaVal]);
+  const { item, value, handleChange } = props;
 
   return (
     <div className="form-group">
-      <label htmlFor="comment">{item.label}</label>
+      <label htmlFor={item.name}>{item.label}</label>
       <textarea
         className="form-control"
         rows="5"
-        id={item.id}
+        id={item.name}
         name={item.name}
         placeholder={item.placeholder}
-        value={textareaVal}
-        onChange={(evt) => setTextareaVal(evt.target.value)}
+        value={value}
+        onChange={handleChange}
       ></textarea>
     </div>
   );

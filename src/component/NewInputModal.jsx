@@ -34,6 +34,7 @@ export default function NewInputModal(props) {
     label: "",
     placeholder: "",
     name: "",
+    defaultValue: "",
     maxlength: "",
     min: "",
     max: "",
@@ -41,6 +42,7 @@ export default function NewInputModal(props) {
     step: "",
     width: "",
     height: "",
+    buttonColor: "",
   });
 
   const handleChange = (evt) => {
@@ -60,6 +62,7 @@ export default function NewInputModal(props) {
           label: formState.label,
           placeholder: formState.placeholder,
           name: formState.name,
+          defaultValue: formState.defaultValue,
           maxlength: formState.maxlength,
           min: formState.min,
           max: formState.max,
@@ -67,6 +70,7 @@ export default function NewInputModal(props) {
           step: formState.step,
           width: formState.width,
           height: formState.height,
+          buttonColor: formState.buttonColor,
         },
       });
     } else {
@@ -136,6 +140,31 @@ export default function NewInputModal(props) {
                     name="name"
                     className="form-control"
                     required
+                  />
+                </div>
+                <div className="input-group mb-2 mr-2 input-group-sm">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text">Default value</span>
+                  </div>
+                  <input
+                    value={formState.defaultValue}
+                    onChange={handleChange}
+                    type="text"
+                    name="defaultValue"
+                    className="form-control"
+                    required
+                  />
+                </div>
+                <div className="input-group mb-2 mr-2 input-group-sm">
+                  <div className="input-group-prepend">
+                    <span className="input-group-text">Button color</span>
+                  </div>
+                  <input
+                    value={formState.buttonColor}
+                    onChange={handleChange}
+                    type="text"
+                    name="buttonColor"
+                    className="form-control"
                   />
                 </div>
                 <div className="input-group mb-2 mr-2 input-group-sm">
